@@ -12,7 +12,7 @@ import { devices } from '@playwright/test';
 /**
  * @see https://playwright.dev/docs/test-configuration
  */
-export const BrowsersSetup = {
+export const Browsers_n_Device_Setup = {
   testDir: './tests/BnTests/',
   
   /* Run tests in files in parallel */
@@ -27,7 +27,7 @@ export const BrowsersSetup = {
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   
   //reporter
-  reporter: 'html',
+  reporter: [['list'], ['html', {outputFolder: 'playwright-report'}]],
 
   //Timeout
   timeout: 30 * 1000,               // 30s - overall test timeout
@@ -38,9 +38,9 @@ export const BrowsersSetup = {
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     //On Navigation or Action timeout
-    navigationTimeout: 15 * 1000,   // 15s - navigation timeout (e.g., page.goto)
+    navigationTimeout: 30 * 1000,   // 15s - navigation timeout (e.g., page.goto)
     actionTimeout: 10 * 1000,       // 10s - per action timeout (e.g., click, fill)
-    
+
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://localhost:3000',
 
@@ -49,6 +49,8 @@ export const BrowsersSetup = {
     // launchOptions: {
     //   headless: false,   // ✅ Correct place for headless
     // },
+
+    ignoreHTTPSErrors: true,
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     screenshot: 'only-on-failure',

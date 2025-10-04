@@ -5,7 +5,7 @@ import { LocalWebConfig, CIWebConfig } from './configs';
 
 export default defineConfig(
   {
-  ...LocalWebConfig.Browsers_n_Device_Setup,
-  //...CIWebConfig.Browsers_n_Device_Setup,
+  //...LocalWebConfig.Browsers_n_Device_Setup,
+  ...CIWebConfig.Browsers_n_Device_Setup,
   }
 );
